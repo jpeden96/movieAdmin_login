@@ -1,6 +1,6 @@
 <?php
   require_once('phpscripts/config.php');
-  confirm_logged_in();
+  // confirm_logged_in();
 
 // $query=mysql_query("UPDATE tablename SET LastLogin=now() WHERE CID='$CID'");
 // $result = mysql_query($query);

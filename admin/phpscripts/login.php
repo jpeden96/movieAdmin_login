@@ -7,11 +7,12 @@
     $loginstring = "SELECT * FROM tbl_user WHERE user_name='{$username}'"; //
     //echo $loginstring;
     $user_set = mysqli_query($link, $loginstring);
-    //echo mysqli_num_rows($user_set);
+    // echo mysqli_num_rows($user_set);
+    // die;
     if(mysqli_num_rows($user_set)){
       $founduser = mysqli_fetch_array($user_set, MYSQLI_ASSOC);
       $id = $founduser['user_id'];
-      if($password === $founduser['user_pass'] && $row['user_fail'] < 3){ //separating the password and user login function
+      if($password == $founduser['user_pass'] && ($founduser['user_fail'] < 3)){ //separating the password and user login function
 
         //echo $id;
 
@@ -27,6 +28,9 @@
 
           $updateLast = "UPDATE tbl_user SET user_last='{$date}' WHERE user_id={$id}";
           $updateLastQuery = mysqli_query($link, $updateLast);
+
+          $failLogin = "UPDATE tbl_user SET user_fail = 0 WHERE user_id = {$id}";
+          $fail_attempt = mysqli_query($link, $failLogin);
         }
         redirect_to('admin_index.php');
 
@@ -35,7 +39,9 @@
 
         $failLogin = "UPDATE tbl_user SET user_fail = {$number} WHERE user_id = {$id}";
         $fail_attempt = mysqli_query($link, $failLogin);
-        echo "did you forget your password?"
+        return "did you forget your password?";
+      }else{
+        return "You're locked out!";
       }
     } else {
       $message = "Did you forget your username or password?";
