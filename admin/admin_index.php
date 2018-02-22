@@ -1,6 +1,6 @@
 <?php
   require_once('phpscripts/config.php');
-  // confirm_logged_in();
+  confirm_logged_in();
 
 // $query=mysql_query("UPDATE tablename SET LastLogin=now() WHERE CID='$CID'");
 // $result = mysql_query($query);
@@ -19,9 +19,16 @@
 <body>
 
 <div class="nav">
+
+
+      <a href="admin_createuser.php">Create User</a>
+      <a href="phpscripts/caller.php?caller_id=logout">Sign Out</a>
+      
   <div class="userInfo"><p class="user">User: </p><p class="username"><?php echo $_SESSION['user_name']; ?><p></div><br>
 <div class="userInfo">
     <p class="user">Last Successful Login:</p><p class="username"><?php echo $_SESSION['user_last'];?></p><br>
+
+
     <ul>
       <li><a href="#">Edit Pre-Existing Movies</a></li>
       <li><a href="#">Add Movies</a></li>

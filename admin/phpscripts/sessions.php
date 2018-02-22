@@ -7,4 +7,9 @@
       redirect_to("admin_login.php");
     }
   }
+
+  function logged_out() {
+    session_destroy(); //kill any session on server
+    redirect_to("../admin_login.php");
+  }
 ?>

@@ -51,15 +51,4 @@
     mysqli_close($link);
   }
 
-  //trying to add a timestamp for last successful login function
-  //
-  // $LoginRS__query=sprintf("SELECT * FROM tablename WHERE USERNAME='%s' ", get_magic_quotes_gpc() ? $loginUsername : addslashes($loginUsername));
-  //
-  // $LoginRS = mysql_query($LoginRS__query, $onpoint) or die(mysql_error());
-  // $query = mysql_fetch_assoc($LoginRS);
-  //
-  // $GLOBALS['LastLogin'] = $query['LastLogin'];
-  //
-  // //Session variable for last login
-  // $_SESSION['LastLogin'] = $query['LastLogin']; */
 ?>
